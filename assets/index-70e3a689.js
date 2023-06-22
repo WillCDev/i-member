@@ -216,7 +216,7 @@ Error generating stack: `+i.message+`
       transform: scale(16) rotate(-45deg);
     }
   }
-`,T2=()=>{const e=Nh(),[t,n]=x.useState(!1);return A(Ah,{transitioning:t,children:A(Rs,{children:Ot(O2,{className:t?Dh:"",children:[A(E2,{onClick:async()=>{t||(n(!0),await En(1800),e(`.${Ms.Play}`))},className:ha,children:A(P2,{className:ma})}),!t&&A(_2,{className:bh,variant:"h4",children:"Click To Play"})]})})})},$2=In("div")`
+`,T2=()=>{const e=Nh(),[t,n]=x.useState(!1);return A(Ah,{transitioning:t,children:A(Rs,{children:Ot(O2,{className:t?Dh:"",children:[A(E2,{onClick:async()=>{t||(n(!0),await En(1800),e(`..${Ms.Play}`))},className:ha,children:A(P2,{className:ma})}),!t&&A(_2,{className:bh,variant:"h4",children:"Click To Play"})]})})})},$2=In("div")`
   cursor: pointer;
   perspective: 500px;
   transition: 200ms;
