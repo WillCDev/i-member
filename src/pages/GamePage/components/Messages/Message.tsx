@@ -12,6 +12,7 @@ export const Message = styled(Typography)<{ color: string; duration: number }>`
   font-weight: 800;
   text-shadow: ${Shadow.TextHighlight};
   animation: ${grow} ${({ duration }) => duration}ms ease-in-out;
+  text-align: center;
 `
 
 Message.defaultProps = {
