@@ -4,6 +4,7 @@ import { CenteredContent } from '@/components/CenteredContent/CenteredContent'
 import { MainPageWrapper } from '@/components/MainPageWrapper'
 import { AnimatedGameBoard } from './GamePage.styled'
 import { wait } from '@/utils'
+import { Paths, getPath } from '@/constants/paths'
 
 export const GamePage: FC = () => {
   const navigate = useNavigate()
@@ -13,7 +14,7 @@ export const GamePage: FC = () => {
     await wait(6000)
     setIsComplete(true)
     await wait(1800)
-    navigate(`../`)
+    navigate(getPath(Paths.Home))
   }
 
   return (

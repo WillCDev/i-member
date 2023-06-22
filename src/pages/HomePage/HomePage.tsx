@@ -2,7 +2,7 @@ import { FC, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { MainPageWrapper } from '@/components/MainPageWrapper'
 import { CenteredContent } from '@/components/CenteredContent/CenteredContent'
-import { Paths } from '@/constants/paths'
+import { Paths, getPath } from '@/constants/paths'
 import { wait } from '@/utils'
 import {
   BigButton,
@@ -23,7 +23,7 @@ export const HomePage: FC = () => {
     if (!transitioning) {
       setTransitioning(true)
       await wait(1800)
-      navigate(`.${Paths.Play}`)
+      navigate(getPath(Paths.Play))
     }
   }
 

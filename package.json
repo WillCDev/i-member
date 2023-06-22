@@ -5,9 +5,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "predeploy": "npm run build",
+    "predeploy": "npm run build --mode gh-pages",
     "deploy": "gh-pages -d dist",
-    "start": "vite",
+    "start": "vite --mode dev",
     "build": "vite build --base=./",
     "lint": "eslint --max-warnings 0 \"src/**/*.{js,jsx,ts,tsx}\" --fix",
     "type-check": "tsc",
