@@ -10,7 +10,7 @@ export const GamePage: FC = () => {
   const [isComplete, setIsComplete] = useState(false)
 
   const onGameComplete = async () => {
-    await wait(4000)
+    await wait(6000)
     setIsComplete(true)
     await wait(1800)
     navigate(`../`)

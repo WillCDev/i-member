@@ -30,7 +30,7 @@ export const GameBoard: FC<Props> = ({ onCompleted }) => {
   const handleSuccess = async () => {
     setGuessedItems([...guessedItems, ...selectedItems])
     setSelectedItems([])
-    if (gameComplete) showSuccessMessage()
+    if (!gameComplete) showSuccessMessage()
   }
 
   const handleFailure = async () => {

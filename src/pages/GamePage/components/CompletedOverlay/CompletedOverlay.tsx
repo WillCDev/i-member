@@ -14,11 +14,11 @@ export const CompletedOverlay: FC = () => {
 
       showMessage({
         message: (
-          <Message color={Colors.VibrantGreen} duration={6000}>
+          <Message color={Colors.VibrantGreen} duration={8000}>
             Winner!!!!
           </Message>
         ),
-        duration: 6000,
+        duration: 8000,
       })
     }
   }, [])
