@@ -22,20 +22,24 @@ export const Shadow = {
 }
 
 export const Animation = {
-  Flashing: (speed = '1s') => css`
+  Flashing: (speed = '1s', delay = '0ms') => css`
     animation: ${flashing} ${speed} ease infinite;
+    animation-delay: ${delay};
   `,
   Shaking: css`
     animation: ${shaking} 0.5s;
     animation-iteration-count: infinite;
   `,
-  WashOut: (speed = '300ms') => css`
+  WashOut: (speed = '300ms', delay = '0ms') => css`
     animation: ${washout} ${speed} forwards;
+    animation-delay: ${delay};
   `,
-  FadeOut: (speed = '300ms') => css`
+  FadeOut: (speed = '300ms', delay = '0ms') => css`
     animation: ${fadeout} ${speed} forwards;
+    animation-delay: ${delay};
   `,
-  FadeIn: (speed = '300ms') => css`
+  FadeIn: (speed = '300ms', delay = '0ms') => css`
     animation: ${fadein} ${speed} forwards;
+    animation-delay: ${delay};
   `,
 }

@@ -9,7 +9,7 @@ export const buttonClass = 'button'
 export const rocketClass = 'rocket'
 
 export const BigButton = styled.button`
-  padding: 20px;
+  padding: 50px;
   border: 10px solid ${Colors.White};
   border-radius: 50%;
   overflow: hidden;
@@ -18,9 +18,7 @@ export const BigButton = styled.button`
   box-shadow: ${Shadow.Standard};
   transition: 400ms cubic-bezier(0, 1.2, 0.8, 1.2);
   transition-delay: 100ms;
-
-  &.${transitioningClass} {
-  }
+  -webkit-tap-highlight-color: transparent;
 `
 
 export const RocketIcon = styled(RocketLaunchIcon)`
@@ -35,7 +33,6 @@ export const FlashingText = styled(Typography)`
   position: absolute;
   bottom: -80px;
   width: 100%;
-
   font-variant: small-caps;
   white-space: nowrap;
   color: ${Colors.White};
@@ -56,8 +53,7 @@ export const HoverArea = styled.div`
     }
 
     & .${clickToPlayClass} {
-      ${Animation.Flashing('2s')};
-      animation-delay: 350ms;
+      ${Animation.Flashing('2s', '350ms')};
     }
 
     & .${rocketClass} {
@@ -77,11 +73,9 @@ export const HoverArea = styled.div`
     }
 
     & .${buttonClass} {
-      transition: 600ms ease-in;
+      transition: 1000ms ease-in;
       transition-delay: 500ms;
-      transform: scale(12) rotate(-45deg);
-      ${Animation.WashOut('1000ms')};
-      animation-delay: 800ms;
+      transform: scale(16) rotate(-45deg);
     }
   }
 `

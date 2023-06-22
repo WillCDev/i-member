@@ -49,7 +49,7 @@ export const CardBack = styled('div')`
   ${CardFace};
   background-color: ${Colors.AlloyOrange};
   svg {
-    font-size: 1.5em;
+    font-size: 1.3em;
   }
 `
 
