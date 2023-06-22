@@ -6,5 +6,3 @@ export enum Paths {
 export const getPath = (path: Paths) => {
   return `${import.meta.env.VITE_ROOT_PATH ?? ''}${path}`
 }
-
-console.log(import.meta.env)

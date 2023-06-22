@@ -31,7 +31,6 @@ export const MessagingContextProvider: FC<Props> = ({ children }) => {
     setCurrent(newMessage)
     messageQueue.current = newQueue
     await wait(newMessage.duration!)
-    console.log('HMMMMMM', newMessage)
     setCurrent(null)
     triggerMessage()
   }
