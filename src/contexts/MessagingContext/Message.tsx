@@ -15,6 +15,7 @@ const MessageWrapper = styled.div<{ $duration: number }>`
   height: 100vh;
   z-index: 1;
   opacity: 1;
+  pointer-events: none;
   animation: ${fadein} 500ms ease-in-out,
     ${fadeout} 500ms ease-in ${({ $duration }) => $duration - 1000}ms forwards;
 `

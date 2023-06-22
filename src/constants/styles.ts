@@ -19,6 +19,7 @@ export const Shadow = {
   Standard: '0px 0px 11px 1px rgba(0,0,0,0.64)',
   HoverLight: '0px 0px 17px 0px rgba(0,0,0,0.6)',
   Hover: '0px 0px 27px 1px rgba(0,0,0,0.64)',
+  TextHighlight: `${Colors.TiffanyBlue} 0px 0px 20px, ${Colors.TiffanyBlue} 0 0 60px, #fff 0 0 200px`,
 }
 
 export const Animation = {
