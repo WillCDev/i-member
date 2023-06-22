@@ -2,6 +2,7 @@ import { useRef } from 'react'
 import { useMessaging } from '@/contexts/MessagingContext'
 import { shuffle } from '@/utils'
 import { Message } from './Message'
+import { Colors } from '@/constants/styles'
 
 export const useSuccessMessage = () => {
   const messageIndex = useRef(0)
@@ -21,7 +22,7 @@ export const useSuccessMessage = () => {
   return () => {
     showMessage({
       message: (
-        <Message color={'green'} duration={2500}>
+        <Message color={Colors.VibrantGreen} duration={2500}>
           {messages[messageIndex.current]}
         </Message>
       ),
