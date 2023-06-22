@@ -8,7 +8,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "start": "vite",
-    "build": "vite build",
+    "build": "vite build --base=./",
     "lint": "eslint --max-warnings 0 \"src/**/*.{js,jsx,ts,tsx}\" --fix",
     "type-check": "tsc",
     "test": "npm run lint && npm run type-check && jest"

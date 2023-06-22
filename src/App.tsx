@@ -12,7 +12,7 @@ export const App: FC = () => (
       <CssBaseline />
       <BrowserRouter>
         <Routes>
-          <Route path={Paths.Home} Component={HomePage} />
+          <Route path="*" Component={HomePage} />
           <Route path={Paths.Play} Component={GamePage} />
         </Routes>
       </BrowserRouter>
