@@ -5,10 +5,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "predeploy": "npm run build --mode gh-pages",
+    "predeploy": "npm run build-gh",
     "deploy": "gh-pages -d dist",
     "start": "vite --mode dev",
     "build": "vite build --base=./",
+    "build-gh": "vite build --base=./ --mode gh",
     "lint": "eslint --max-warnings 0 \"src/**/*.{js,jsx,ts,tsx}\" --fix",
     "type-check": "tsc",
     "test": "npm run lint && npm run type-check && jest"
