@@ -1,11 +1,16 @@
 import { FC, useLayoutEffect, useMemo, useState } from 'react'
-import { FlippableCard } from '@/components/FlippableCard'
-import { useSuccessMessage } from '@/components/Messages'
-import { generateGameItems, hasGameItem } from './GamePage.utils'
-import { CardGrid } from './GamePage.styled'
+import { FlippableCard } from '@/pages/GamePage/components/FlippableCard'
+import { useSuccessMessage } from '@/pages/GamePage/components/Messages'
+import { generateGameItems, hasGameItem } from '../GamePage.utils'
+import { CardGrid } from '../GamePage.styled'
 import { wait } from '@/utils'
+import { CompletedOverlay } from './CompletedOverlay/CompletedOverlay'
 
-export const GameBoard: FC = () => {
+interface Props {
+  onCompleted: () => void
+}
+
+export const GameBoard: FC<Props> = ({ onCompleted }) => {
   const items = useMemo(() => generateGameItems(), [])
   const showSuccessMessage = useSuccessMessage()
 
@@ -14,6 +19,7 @@ export const GameBoard: FC = () => {
   const [hasError, setHasError] = useState(false)
 
   const flippedItems = [...selectedItems, ...guessedItems]
+  const gameComplete = guessedItems.length === items.length
 
   const handleSelectCard = (item: GameItem) => {
     if (selectedItems.length === 2) return
@@ -24,7 +30,7 @@ export const GameBoard: FC = () => {
   const handleSuccess = async () => {
     setGuessedItems([...guessedItems, ...selectedItems])
     setSelectedItems([])
-    showSuccessMessage()
+    if (gameComplete) showSuccessMessage()
   }
 
   const handleFailure = async () => {
@@ -44,16 +50,24 @@ export const GameBoard: FC = () => {
     }
   }, [selectedItems])
 
+  useLayoutEffect(() => {
+    if (gameComplete) onCompleted()
+  }, [gameComplete])
+
   return (
-    <CardGrid hasError={hasError}>
-      {items.map((item) => (
-        <FlippableCard
-          key={item.index}
-          item={item}
-          selected={hasGameItem(flippedItems, item.index)}
-          onSelect={() => handleSelectCard(item)}
-        />
-      ))}
-    </CardGrid>
+    <>
+      <CardGrid hasError={hasError}>
+        {items.map((item) => (
+          <FlippableCard
+            key={item.index}
+            item={item}
+            selected={hasGameItem(flippedItems, item.index)}
+            onSelect={() => handleSelectCard(item)}
+          />
+        ))}
+      </CardGrid>
+
+      {gameComplete && <CompletedOverlay />}
+    </>
   )
 }

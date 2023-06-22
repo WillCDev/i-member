@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { Animation } from '@/constants/styles'
-import { GameBoard } from './GameBoard'
+import { GameBoard } from './components/GameBoard'
 
 export const CardGrid = styled('div')<{ hasError?: boolean }>`
   display: grid;

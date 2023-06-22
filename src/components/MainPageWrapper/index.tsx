@@ -19,6 +19,7 @@ const PageWrapper = styled.main`
 const OverlayWashout = css`
   background: transparent;
   opacity: 1;
+  z-index: 100;
   ${Animation.WashOut('800ms', '800ms')}
 `
 

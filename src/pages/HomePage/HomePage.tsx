@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { MainPageWrapper } from '@/components/MainPageWrapper'
 import { CenteredContent } from '@/components/CenteredContent/CenteredContent'
 import { Paths } from '@/constants/paths'
+import { wait } from '@/utils'
 import {
   BigButton,
   FlashingText,
@@ -18,10 +19,11 @@ export const HomePage: FC = () => {
   const navigate = useNavigate()
   const [transitioning, setTransitioning] = useState(false)
 
-  const playGame = () => {
+  const playGame = async () => {
     if (!transitioning) {
       setTransitioning(true)
-      setTimeout(() => navigate(`.${Paths.Play}`), 1800)
+      await wait(1800)
+      navigate(`.${Paths.Play}`)
     }
   }
 

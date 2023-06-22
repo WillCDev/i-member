@@ -13,7 +13,7 @@ export const Colors = {
   Rufous: '#ae2012',
   Auburn: '#9b2226',
   White: '#ffffff',
-  VibrantGreen: '#58cd36',
+  VibrantGreen: '#48bd26',
 }
 
 export const Shadow = {

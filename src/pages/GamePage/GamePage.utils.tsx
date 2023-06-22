@@ -1,11 +1,13 @@
 import { shuffle } from '@/utils'
-import { Emojis } from './Emojis.config'
+import { Emojis } from './Emojis'
 
 export const generateGameItems = (): GameItem[] => {
-  const duplicatedList: GameItem[] = Emojis.map((item) => [
-    { ...item, index: `${item.label}-0` },
-    { ...item, index: `${item.label}-1` },
-  ]).flat()
+  const duplicatedList: GameItem[] = Emojis.slice(0, 1)
+    .map((item) => [
+      { ...item, index: `${item.label}-0` },
+      { ...item, index: `${item.label}-1` },
+    ])
+    .flat()
 
   return shuffle(duplicatedList)
 }

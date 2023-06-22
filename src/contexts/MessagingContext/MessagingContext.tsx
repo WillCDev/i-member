@@ -1,12 +1,4 @@
-import {
-  FC,
-  ReactNode,
-  createContext,
-  useCallback,
-  useContext,
-  useRef,
-  useState,
-} from 'react'
+import { FC, ReactNode, createContext, useContext, useRef, useState } from 'react'
 import { Message, MessageConfig } from './Message'
 import { wait } from '@/utils'
 
@@ -26,10 +18,10 @@ export const MessagingContextProvider: FC<Props> = ({ children }) => {
   const messageQueue = useRef<MessageConfig[]>([])
   const [current, setCurrent] = useState<MessageConfig | null>()
 
-  const showMessage = useCallback((config: MessageConfig) => {
+  const showMessage = (config: MessageConfig) => {
     messageQueue.current.unshift(config)
     triggerMessage()
-  }, [])
+  }
 
   const triggerMessage = async () => {
     const [newMessage, ...newQueue] = messageQueue.current
@@ -39,6 +31,7 @@ export const MessagingContextProvider: FC<Props> = ({ children }) => {
     setCurrent(newMessage)
     messageQueue.current = newQueue
     await wait(newMessage.duration!)
+    console.log('HMMMMMM', newMessage)
     setCurrent(null)
     triggerMessage()
   }

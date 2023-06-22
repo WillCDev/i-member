@@ -8,7 +8,7 @@ export interface MessageConfig {
   duration: number
 }
 
-const MessageWrapper = styled.div<{ $duration: number }>`
+const MessageWrapper = styled.div<{ duration: number }>`
   position: fixed;
   top: 0;
   width: 100vw;
@@ -17,11 +17,11 @@ const MessageWrapper = styled.div<{ $duration: number }>`
   opacity: 1;
   pointer-events: none;
   animation: ${fadein} 500ms ease-in-out,
-    ${fadeout} 500ms ease-in ${({ $duration }) => $duration - 1000}ms forwards;
+    ${fadeout} 500ms ease-in ${({ duration }) => duration - 1000}ms forwards;
 `
 
 export const Message: FC<MessageConfig> = ({ message, duration }) => (
-  <MessageWrapper $duration={duration}>
+  <MessageWrapper duration={duration}>
     <CenteredContent>{message}</CenteredContent>
   </MessageWrapper>
 )
