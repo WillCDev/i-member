@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useMemo, useRef } from 'react'
 import { useMessaging } from '@/contexts/MessagingContext'
 import { shuffle } from '@/utils'
 import { Message } from './Message'
@@ -8,16 +8,20 @@ export const useSuccessMessage = () => {
   const messageIndex = useRef(0)
   const { showMessage } = useMessaging()
 
-  const messages = shuffle([
-    'Sweet',
-    'Excellent',
-    'Bodacious',
-    'Alright Smartypants',
-    'Tubular',
-    "Call Mensa, you're on fire!",
-    'Woop wooooop',
-    'Wunderbar!',
-  ])
+  const messages = useMemo(
+    () =>
+      shuffle([
+        'Sweet',
+        'Excellent',
+        'Bodacious',
+        'Alright Smartypants',
+        'Tubular',
+        "Call Mensa, you're on fire!",
+        'Woop wooooop',
+        'Wunderbar!',
+      ]),
+    []
+  )
 
   return () => {
     showMessage({
