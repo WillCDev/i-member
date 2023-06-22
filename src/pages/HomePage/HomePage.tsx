@@ -21,12 +21,12 @@ export const HomePage: FC = () => {
   const playGame = () => {
     if (!transitioning) {
       setTransitioning(true)
-      setTimeout(() => navigate(Paths.Play), 1800)
+      setTimeout(() => navigate(`.${Paths.Play}`), 1800)
     }
   }
 
   return (
-    <MainPageWrapper>
+    <MainPageWrapper transitioning={transitioning}>
       <CenteredContent>
         <HoverArea className={transitioning ? transitioningClass : ''}>
           <BigButton onClick={playGame} className={buttonClass}>
