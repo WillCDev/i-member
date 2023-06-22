@@ -4,8 +4,11 @@ import { MainPageWrapper } from '@/components/MainPageWrapper'
 import { FlippableCard } from '@/components/FlippableCard'
 import { generateGameItems, hasGameItem } from './GamePage.utils'
 import { CardGrid } from './GamePage.styled'
+import { useMessaging } from '@/contexts/MessagingContext'
+import { wait } from '@/utils'
 
 export const GamePage: FC = () => {
+  const { showMessage } = useMessaging()
   const items = useMemo(() => generateGameItems(), [])
 
   const [selectedItems, setSelectedItems] = useState<GameItem[]>([])
@@ -19,25 +22,24 @@ export const GamePage: FC = () => {
     setSelectedItems([...selectedItems, item])
   }
 
-  const handleSuccess = () => {
+  const handleSuccess = async () => {
+    await wait(1000)
     setGuessedItems([...guessedItems, ...selectedItems])
     setSelectedItems([])
   }
 
-  const handleFailure = () => {
+  const handleFailure = async () => {
+    await wait(300)
+    showMessage({ message: 'Oops', duration: 2000 })
+    await wait(1000)
     setSelectedItems([])
   }
 
   useEffect(() => {
     if (selectedItems.length === 2) {
-      const timer = setTimeout(() => {
-        if (selectedItems[0].label === selectedItems[1].label) {
-          handleSuccess()
-        } else handleFailure()
-        clearTimeout(timer)
-      }, 1000)
-
-      return () => clearTimeout(timer)
+      if (selectedItems[0].label === selectedItems[1].label) {
+        handleSuccess()
+      } else handleFailure()
     }
   }, [selectedItems])
 
